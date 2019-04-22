@@ -5,7 +5,7 @@
 @implementation FlutterUmengAnalyticsPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel =
-      [FlutterMethodChannel methodChannelWithName:@"flutter_umeng_analytics"
+      [FlutterMethodChannel methodChannelWithName:@"umeng_analytics_flutter"
                                   binaryMessenger:[registrar messenger]];
   FlutterUmengAnalyticsPlugin* instance = [[FlutterUmengAnalyticsPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];
@@ -43,8 +43,8 @@
   NSString* channel = call.arguments[@"channel"];
   if (channel) UMConfigInstance.channelId = channel;
 
-  NSNumber* policy = call.arguments[@"policy"];
-  if (policy) UMConfigInstance.eSType = [policy intValue];
+  // NSNumber* policy = call.arguments[@"policy"];
+  // if (policy) UMConfigInstance.eSType = [policy intValue];
 
   NSNumber* reportCrash = call.arguments[@"reportCrash"];
   if (reportCrash) UMConfigInstance.bCrashReportEnabled = [reportCrash boolValue];
