@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
     if (_inited == null) {
       _inited = true;
       UMengAnalytics.init('5a20cc45f43e48512000015d',
-          policy: Policy.BATCH, encrypt: true, reportCrash: false);
+          encrypt: true, reportCrash: false);
     }
   }
 
@@ -31,15 +31,15 @@ class _MyAppState extends State<MyApp> {
         ),
         body: new Center(
           child: new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-            new RaisedButton(
-              onPressed: () {
-                UMengAnalytics.logEvent("hello");
-              },
-              child: new Text('Running on: hello'),
-            ),
-          ]),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                new RaisedButton(
+                  onPressed: () {
+                    UMengAnalytics.eventCounts("hello");
+                  },
+                  child: new Text('Running on: hello'),
+                ),
+              ]),
         ),
       ),
     );
